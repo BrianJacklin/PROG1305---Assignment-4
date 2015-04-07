@@ -9,7 +9,6 @@ html,body{
 
 html * {
   box-sizing:border-box;
-  transition: all 0.4s ease;
   font-family: 'Open Sans';
 }
 
@@ -30,7 +29,6 @@ h1,h2,h3,h4,h5,h6,p{
 }
 
 *:not(code) {
-  transition: all 0.25s ease-in-out;
   font-family: 'Open Sans', Arial;
 }
 
@@ -145,6 +143,10 @@ a.trigger.open .close {
   height: 100%;
   transform: translateX(200%);
 }
+#main-nav *{
+    transition: all 0.4s ease;
+
+}
 
 #main-nav.open {
   transform: translateX(0);
@@ -204,21 +206,14 @@ a.trigger.open .close {
 }
 
 #accordion .item {
-  margin: 0 auto;
-  padding: 0;
-  list-style: none;
-  max-height:55px;
-  overflow: hidden;
-  margin-bottom: 10px;
-  border: 1px solid #666;
-  float:left;
+  display: none;
 }
 
 #accordion .item.open {
   max-height: 1000px;
 }
 
-#accordion .item a {
+#accordion h3 {
   background: #40738f;
   display: block;
   padding: 10px 25px;
@@ -226,8 +221,17 @@ a.trigger.open .close {
   color: #fff;
   border: 1px solid transparent;
 }
+#accordion p {
+  display: block;
+  color: #404040;
+  font-size: 14pt;
+}
 
-#accordion .item a .plus{
+#accordion h3.open {
+  background:#c5564c;
+}
+
+#accordion h3 .plus{
   display:block;
   background: url("../img/plus.png") rgba(0,0,0,0.15);
   background-size: cover;
@@ -238,16 +242,6 @@ a.trigger.open .close {
   float:right;
 }
 
-#accordion .item.open a {
-  background: #c5564c;
-}
-
-#accordion .item.open a .plus{
+#accordion h3 .plus.open{
   transform: rotate(135deg);
-}
-
-#accordion .item .content {
-  margin: 0 auto;
-  padding: 10px 25px;
-  font-size: 12pt;
 }

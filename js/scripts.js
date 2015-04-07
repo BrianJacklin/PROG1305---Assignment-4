@@ -1,30 +1,20 @@
 
-window.onload = function() {
-  var $ = function (selector){return document.querySelector(selector);};  // this is not jQuery
+$(document).ready(function(){
 
-/* ############################################################## 
-                      Navigation
-   ############################################################## */
-  function toggleMenu(){
-    $("#main-nav").classList.toggle("open");
-    $(".overlay").classList.toggle("open");
-    $(".trigger").classList.toggle("open");
-    $("#body").classList.toggle("open");
+  $("#accordion").accordion({
+      collapsible: true,
+      heightStyle: "content"
+    });
+
+  $("#accordion h3").click(function(){
+    $(".plus").removeClass("open");
+    $(this).children(".plus").addClass("open");
+  });
+
+  if($("#accordion h3").hasClass("ui-active-state")){
+    $(this).children(".plus").addClass("open");
+  }else{
+    $(this).children(".plus").removeClass("open");
   }
-  
-  //behaviour if you click the menu button
-  $(".trigger").onclick = toggleMenu;
-  
-  //behaviour if you click a menu item
-  $("#main-nav").getElementsByTagName("li").onclick = toggleMenu;
-  
-  //behaviour if you click the overlay
-  $(".overlay").onclick = toggleMenu;
 
-
-/* ############################################################## 
-                      ASSIGNMENT #4 START
-   ############################################################## */
-   
-
-};// onload
+});
